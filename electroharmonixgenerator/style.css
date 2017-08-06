@@ -1,0 +1,97 @@
+@media screen and (min-width:601px){
+@font-face{
+font-family: 'electroharmonix';
+src: url('font/electroharmonix.ttf')
+format('truetype');
+}
+
+body{
+  font-family: Arial;
+}
+
+textarea{
+  font-family: 'electroharmonix';
+  font-size: 12px;
+  border: 2px solid #000000;
+}
+
+#textarea-s{
+  display: none;
+}
+
+#textarea-l{
+  display: block;
+}
+
+h1{
+  font-size: 30px;
+  text-align: center;
+}
+
+table{
+  margin: auto;
+}
+
+#bottom{
+  position: fixed !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 25px;
+  width: 100%;
+  line-height: 2em;
+  background-color: #000000;
+  color: #ffffff;
+  white-space: nowrap;
+}
+}
+
+@media screen and (max-width:600px){
+@font-face{
+font-family: 'electroharmonix';
+src: url('font/electroharmonix.ttf')
+format('truetype');
+}
+
+body{
+  font-family: Arial;
+}
+
+textarea{
+  font-family: 'electroharmonix';
+  font-size: 16px;
+  border: 2px solid #000000;
+}
+
+#textarea-s{
+  display: block;
+}
+
+#textarea-l{
+  display: none;
+}
+
+h1{
+  font-size: 18px;
+  text-align: center;
+}
+
+table{
+  margin: auto;
+}
+
+#bottom{
+  position: fixed !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  line-height: 2em;
+  background-color: #000000;
+  color: #ffffff;
+  white-space: nowrap;
+}
+}
