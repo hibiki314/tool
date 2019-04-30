@@ -1,0 +1,90 @@
+﻿<html lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<style>
+table{
+  margin: auto;
+}
+
+#Load{
+  font-size: 30px;
+}
+</style>
+</head><body>
+<table border=0>
+<th>
+<div class="samplearea">
+<p>平成終了カウントダウン</p>
+<p id="RealtimeCountdownArea" class="rtCountdown">
+<span>＿人人人人人人人人人＿<br>
+＞　　読み込み中　　＜<br>
+￣Y^Y^Y^Y^Y^Y^Y^Y^Y￣</span></p>
+<script type="text/javascript">
+function set2fig(num) {
+
+	var ret;
+	if( num < 10 ) { ret = "0" + num; }
+	else { ret = num; }
+	return ret;
+}
+function isNumOrZero(num) {
+
+	if( isNaN(num) ) { return 0; }
+	return num;
+}
+function showCountdown() {
+
+	var nowDate = new Date();
+	var dnumNow = nowDate.getTime();
+
+	var targetDate = new Date( isNumOrZero(2019), isNumOrZero(05)-1, isNumOrZero(01), isNumOrZero(00), isNumOrZero(00), isNumOrZero(00) );
+	var dnumTarget = targetDate.getTime();
+
+	var dlYear  = targetDate.getFullYear();
+	var dlMonth = targetDate.getMonth() + 1;
+	var dlDate  = targetDate.getDate();
+	var dlHour  = targetDate.getHours();
+	var dlMin   = targetDate.getMinutes();
+	var dlSec   = targetDate.getSeconds();
+	var msg1 = "<span>"+ dlYear + "/" + dlMonth + "/" + dlDate + " " + set2fig(dlHour) + ":" + set2fig(dlMin) + ":" + set2fig(dlSec);
+//
+
+	var diff2Dates = dnumTarget - dnumNow;
+	if( dnumTarget < dnumNow ) {
+
+		diff2Dates *= -1;
+	}
+
+	var dDays  = diff2Dates / ( 1000 * 60 * 60 * 24 );	
+	diff2Dates = diff2Dates % ( 1000 * 60 * 60 * 24 );
+	var dHour  = diff2Dates / ( 1000 * 60 * 60 );
+	diff2Dates = diff2Dates % ( 1000 * 60 * 60 );
+	var dMin   = diff2Dates / ( 1000 * 60 );
+	diff2Dates = diff2Dates % ( 1000 * 60 );
+	var dSec   = diff2Dates / 1000;
+	diff2Dates = diff2Dates % 1000;
+	var dMiSec = diff2Dates;
+	var msg2 = Math.floor(dDays) + "日" + Math.floor(dHour) + "時間" + Math.floor(dMin) + "分" + Math.floor(dSec) + "秒" /* + dMiSec */;
+
+
+	var msg;
+	if( dnumTarget > dnumNow ) {
+
+		msg = "平成終了まで、<br>あと<span>" + msg2 + "</span>です。";
+	}
+	else {
+
+		msg = "平成は、<br>既に<span>" + msg2 + "</span>前に過ぎました。";
+	}
+
+	document.getElementById("RealtimeCountdownArea").innerHTML = msg;
+}
+CountdownClockId1 = setInterval('showCountdown()',1000);
+</script>
+<style type="text/css">
+.rtCountdown span { font-family: "Arial",sans-serif; font-size: 1.5em; }
+</style>
+</div>
+</th>
+</table>
+</body></html>
